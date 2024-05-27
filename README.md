@@ -1,4 +1,4 @@
 # Calculadoras pra Mega-Sena
 
 # Créditos
-Dados obtidos com a ajuda da [API 100% gratuita](https://github.com/guto-alves/loterias-api) feita por [Gustavo Alves](https://github.com/guto-alves) em 
+Dados obtidos pela [API de loterias](https://github.com/guto-alves/loterias-api) gratuita feita por [Gustavo Alves](https://github.com/guto-alves).

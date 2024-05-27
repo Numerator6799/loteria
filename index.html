@@ -5,22 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mega-Sena</title>
-    
+
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-<h1>Mega-Sena</h1>
-<p id="intro"></p>
-<div class="mini-form">
-    <h2>Frequência de um número</h2>
-    <span>Frequência</span>
-    <input id="inputFreq"/>
-    <button onclick="calcFreq()">Calcular</button>
-    <p id="resFreq"></p>
-</div>
+    <h1>Mega-Sena</h1>
+    <p id="totalResultados"></p>
+    <p id="topSeis"></p>
+    <p id="topSeisVencedores"></p>
+
+    <div id="grid"></div>
+    <div class="mini-form">
+        <h2>Frequência de um número</h2>
+        <span>Frequência</span>
+        <input id="inputFreq" />
+        <button onclick="calcFreq()">Calcular</button>
+        <p id="resFreq"></p>
+    </div>
+    <script type="text/javascript" src="config.js"></script>
+    <script type="text/javascript" src="log.js"></script>
     <script type="text/javascript" src="data.json"></script>
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="utils.js"></script>
+    <script type="text/javascript" src="service.js"></script>
+    <script type="text/javascript" src="viewProvider.js"></script>
 </body>
 
 </html>
