@@ -11,17 +11,46 @@
 
 <body>
     <h1>Mega-Sena</h1>
-    <p id="totalResultados"></p>
-    <p id="topSeis"></p>
-    <p id="topSeisVencedores"></p>
+    <p>1998 ligou e pediu esse site de volta :)</p>
+    <hr />
+    <div>
+        <h2>Estatísticas rápidas</h2>
+        <p id="quantidadeConcursos"></p>
+        <p id="topSeis"></p>
+        <p id="topSeisVencedores"></p>
+    </div>
 
-    <div id="grid"></div>
-    <div class="mini-form">
-        <h2>Frequência de um número</h2>
+    <hr />
+    <div>
+
+        <h2>Faça um jogo</h2>
+        <div>
+            <p>Tipo de exibição das dezenas</p>
+            <select>
+                <option>normal</option>
+                <option>4 partes alternado</option>
+                <option>6 partes alternado</option>
+        </div>
+        </select>
+        <p><span id="contadorDezenasSelecionadas">0</span> dezena(s) selecionadas <button
+                onclick="limparDezenasSelecionadas()">Limpar</button></p>
+        <table id="tabelaNumeros"></table>
+        <div id="estatisticasDezenasSelecionadas"></div>
+    </div>
+
+    <hr />
+    <div>
+        <h2>Outras estatísticas</h2>
+        <h3>Frequência de uma dezena</h3>
+        <p>Digite uma dezena e descubra com que frequência ela apareceu nos jogos até agora.</p>
         <span>Frequência</span>
-        <input id="inputFreq" />
+        <input id="inputFreq" min="1" max="60" type="number" />
         <button onclick="calcFreq()">Calcular</button>
         <p id="resFreq"></p>
+    </div>
+    <hr />
+    <div>
+        <span>Desenvolvido por um gato.</span>
     </div>
     <script type="text/javascript" src="config.js"></script>
     <script type="text/javascript" src="log.js"></script>

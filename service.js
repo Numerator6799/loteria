@@ -1,4 +1,5 @@
 resultados = []
+dezenasSelecionadas = []
 freqs = []
 
 async function main() {
@@ -23,21 +24,34 @@ function obterTop(n = 6, somenteJogosVencedores = false) {
         .slice(0, n)
 }
 
+function obterDezenas(modo) {
+    const dezenas = []
+    for (var i = 1; i <= 60; i++) {
+        dezenas.push(normalizarDezena(i));
+    }
+    return dezenas;
+}
+
+function selecionarDezena(num) {
+    dezenasSelecionadas.push(num)
+}
+
+
+
 function calcularFrequencia(num) {
     debug(calcularFrequencia.name, num)
     if (!num)
         return;
-    // tem que converter pra string pois os dados contém numeros em strings
-    num = num.toString()
-    if (num.length === 1)
-        num = `0${num}`
+    num = normalizarDezena(num)
     const vezesSorteadas = resultados.filter(r => r.dezenas.includes(num));
     const vezesSorteadasJogosVencedores = vezesSorteadas.filter(r => r.valorAcumuladoProximoConcurso === 0);
-    return {
+    const res = {
         dezena: num,
         vezesSorteadas,
         vezesSorteadasJogosVencedores
     }
+    debug(calcularFrequencia.name, res.dezena, res.vezesSorteadas.length, res.vezesSorteadasJogosVencedores.length)
+    return res;
 }
 
 

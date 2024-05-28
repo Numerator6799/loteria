@@ -1,3 +1,12 @@
 body {
-    background-color: magenta;
+    background-color: cadetblue;
+}
+
+td.celula-dezena:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+td.selecionada {
+    background-color: green;
 }
