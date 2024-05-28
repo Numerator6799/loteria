@@ -2,6 +2,9 @@ body {
     background-color: cadetblue;
 }
 
+td.celula-dezena{
+    padding: 5px
+}
 td.celula-dezena:hover{
     background-color: blue;
     cursor: pointer;
