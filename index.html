@@ -11,7 +11,7 @@
 
 <body>
     <h1>Mega-Sena</h1>
-    <p>1998 ligou e pediu esse site de volta :)</p>
+    <p>Clique <a href="https://github.com/Numerator6799/loteria/blob/main/README.md" target="_blank">aqui</a> para saber como usar esse site.</p>
     <hr />
     <div>
         <h2>Estatísticas rápidas</h2>
@@ -26,15 +26,15 @@
         <h2>Faça um jogo</h2>
         <div>
             <p>Tipo de exibição das dezenas</p>
-            <select>
-                <option>normal</option>
-                <option>4 partes alternado</option>
-                <option>6 partes alternado</option>
+            <select id="seletorModoTabela" onchange="construirTabelaComModo()">
+                <option value="normal">padrão</option>
+                <option value="quatro-partes-alternadas">4 partes alternadas</option>
+                <option value="seis-partes-alternadas">6 partes alternadas</option>
+            </select>
         </div>
-        </select>
         <p><span id="contadorDezenasSelecionadas">0</span> dezena(s) selecionadas <button
-                onclick="limparDezenasSelecionadas()">Limpar</button></p>
-        <table id="tabelaNumeros"></table>
+                onclick="limparTabela()">Limpar</button></p>
+        <table id="tabelaDezenas"></table>
         <div id="estatisticasDezenasSelecionadas"></div>
     </div>
 
@@ -48,10 +48,8 @@
         <button onclick="calcFreq()">Calcular</button>
         <p id="resFreq"></p>
     </div>
-    <hr />
-    <div>
-        <span>Desenvolvido por um gato.</span>
-    </div>
+
+
     <script type="text/javascript" src="config.js"></script>
     <script type="text/javascript" src="log.js"></script>
     <script type="text/javascript" src="data.json"></script>

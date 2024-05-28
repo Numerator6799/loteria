@@ -17,23 +17,21 @@ function init() {
     const elTopSeisVencedores = document.getElementById("topSeisVencedores")
     elTopSeisVencedores.innerHTML = `Dezenas mais frequentes de jogos vencedores:${pularLinha()}${negrito(formatarDezenas(topSeisVencedores.map(n => n.dezena)))}`;
 
-
-    construirGrid('normal')
+    construirTabela()
 }
 
 init();
 
-function construirGrid(modo = "normal") {
-
+function construirTabela(modo = "normal") {
     let dezenas = []
-    if (modo === "normal") {
-        dezenas = obterDezenas(modo);
-        linhas = 6
-    }
+    dezenas = obterDezenas(modo);
+    linhas = 6
+    if (modo === "quatro-partes-alternadas")
+        linhas = 4
 
     const colunas = 60 / linhas
 
-    const elTabela = document.getElementById("tabelaNumeros");
+    const elTabela = document.getElementById("tabelaDezenas");
     elTabela.replaceChildren()
     let index = 0;
     for (let linha = 1; linha <= linhas; linha++) {
@@ -41,8 +39,12 @@ function construirGrid(modo = "normal") {
         const novaLinha = elTabela.insertRow(linha - 1);
         for (let coluna = 1; coluna <= colunas; coluna++) {
             const novaCelula = novaLinha.insertCell(coluna - 1);
-            novaCelula.textContent = dezenas[index++]
+            const dezena = dezenas[index++];
+            novaCelula.textContent = dezena
             novaCelula.classList.add("celula-dezena")
+            if (dezenasSelecionadas.includes(normalizarDezena(dezena)))
+                novaCelula.classList.add("selecionada")
+
             novaCelula.onclick = selecionarDezenaDoGrid
         }
     }
@@ -79,9 +81,15 @@ function atualizarInfoDezenasSelecionadas() {
     });
 }
 
-function limparDezenasSelecionadas() {
+function limparTabela() {
     dezenasSelecionadas = []
-    construirGrid()
+    construirTabelaComModo()
+}
+
+function construirTabelaComModo() {
+    debug(construirTabelaComModo.name)
+    const el = document.getElementById("seletorModoTabela")
+    construirTabela(el.value)
 }
 
 function calcFreq() {
@@ -89,5 +97,3 @@ function calcFreq() {
     res = calcularFrequencia(num);
     document.getElementById("resFreq").innerHTML = construirTextoFrequencia(res);
 }
-
-
